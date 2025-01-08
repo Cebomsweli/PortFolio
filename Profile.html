@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebolenkosi Msweli Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffaa33;
+        }
+
+        .profile {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #ffaa33;
+        }
+
+        .profile h1 {
+            margin: 10px 0 5px;
+            color: #ffaa33;
+        }
+
+        .profile p {
+            color: #aaa;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #ffaa33;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 170, 51, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h2 {
+            color: #ffaa33;
+            z-index: 1;
+            position: relative;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .card ul li {
+            margin: 5px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div><h2>Cebolenkosi Msweli</h2></div>
+        <ul>
+            <li><a href="Profile.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="profile" id="home">
+        <img src="cebo_portfloi.jpg" alt="Cebolenkosi Msweli">
+        <h1>Hello, I'm Cebolenkosi Msweli</h1>
+        <p>A Computer Science and IT graduate passionate about technology and problem-solving.</p>
+    </section>
+
+    <section class="cards" id="skills">
+        <div class="card">
+            <h2>Python</h2>
+            <ul>
+                <li>Created a Career Advisor Chatbot</li>
+                <li>Data Analysis Projects</li>
+                <li>Experience with Flask and APIs</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>C#</h2>
+            <ul>
+                <li>Developed a DJ Booking System</li>
+                <li>Experience with ASP.NET</li>
+                <li>Built desktop applications</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>C++</h2>
+            <ul>
+                <li>Created a Quiz Game</li>
+                <li>Worked on algorithm-based projects</li>
+                <li>Strong foundation in OOP</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
+    </footer>
+</body>
+</html>

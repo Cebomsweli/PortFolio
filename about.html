@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Cebolenkosi Msweli</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1a1a1a;
+            z-index: 10;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffaa33;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .square {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 170, 51, 0.2);
+            animation: move 10s linear infinite;
+            border-radius: 5px;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .about {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about h1 {
+            color: #ffaa33;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <!-- Adding multiple squares -->
+        <div class="square" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+        <div class="square" style="top: 20%; left: 30%; animation-delay: 2s;"></div>
+        <div class="square" style="top: 50%; left: 60%; animation-delay: 4s;"></div>
+        <div class="square" style="top: 80%; left: 80%; animation-delay: 6s;"></div>
+        <div class="square" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+        <div class="square" style="top: 60%; left: 10%; animation-delay: 3s;"></div>
+    </div>
+
+    <nav>
+        <div><h2>Cebolenkosi Msweli</h2></div>
+        <ul>
+            <li><a href="Profile.html">Home</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about">
+        <h1>About Me</h1>
+        <p>
+            My name is <strong>Cebolenkosi Msweli</strong>. I was born in a small rural area named <strong>Shikishela</strong>, under the small township <strong>Mtubatuba</strong>. 
+            I attended primary school at <strong>Bhokozoza Primary School</strong>, then proceeded to <strong>Mdungandlovu</strong> and later <strong>Nkosana High School</strong>, where I successfully completed my Matric in the year <strong>2020</strong>.
+        </p>
+        <p>
+            Growing up, I developed a deep passion for technology, which inspired me to pursue a career in <strong>Computer Science and IT</strong>. 
+            This field has not only broadened my understanding of the tech industry but also revealed exciting opportunities and challenges in this ever-evolving domain.
+        </p>
+        <p>
+            In addition to my love for technology, I enjoy <strong>weightlifting</strong>, attending church, and engaging in activities that challenge and improve my skills. 
+            I also love <strong>reading</strong>, exploring new technologies, and keeping up with the latest advancements in the tech industry.
+        </p>
+        <p>
+            My ultimate goal is to continuously grow and adapt as the tech industry evolves, contributing meaningfully to this dynamic field while making a positive impact on the world.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
+    </footer>
+</body>
+</html>

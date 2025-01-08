@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Cebolenkosi Msweli</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffaa33;
+        }
+
+        .skills {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .skills h1 {
+            color: #ffaa33;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 50%;
+            border: 2px solid #ffaa33;
+            border-radius: 20px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #ffaa33;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
+        }
+
+        .card h2 {
+            color: #ffaa33;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            background-color: #ffaa33;
+            color: #0d0d0d;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .pagination button:hover {
+            background-color: #ffc966;
+        }
+
+        .pagination button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div><h2>Cebolenkosi Msweli</h2></div>
+        <ul>
+            <li><a href="Profile.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="skills">
+        <h1>My Skills</h1>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search skills..." oninput="filterSkills()">
+        </div>
+        <div class="cards" id="skills-container">
+            <!-- Cards will be dynamically loaded here -->
+        </div>
+        <div class="pagination" id="pagination-container">
+            <!-- Pagination buttons will be dynamically created here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const skills = [
+              { name: "Python", details: ["Data Analysis", "Web Development with Flask", "Automation Scripts"] },
+              { name: "C#", details: ["Desktop Applications", "ASP.NET Development", "Game Development Basics"] },
+              { name: "C++", details: ["Algorithm Design", "OOP Concepts", "Data Structures"] },
+              { name: "HTML & CSS", details: ["Responsive Web Design", "Semantic HTML", "CSS Animations", "Flexbox and Grid Layouts", "Cross-Browser Compatibility"] },
+              { name: "JavaScript", details: ["DOM Manipulation", "Event Handling", "Asynchronous Programming (Promises, Async/Await)", "API Integration (Fetch/Axios)"] },
+              { name: "Git", details: ["Version Control", "Branching and Merging", "Collaboration with GitHub/GitLab", "Resolving Merge Conflicts"] },
+              { name: "SQL", details: ["Database Design", "Complex Query Writing", "Data Manipulation", "Database Optimization"] },
+              { name: "Java", details: ["Object-Oriented Programming", "Multithreading", "JavaFX GUI Development", "API Integration"] },
+              { name: "React", details: ["Component-Based Architecture", "State Management", "React Hooks", "Building SPAs (Single Page Applications)"] },
+              { name: "Linux", details: ["Shell Scripting", "System Administration", "File System Management", "User Management"] },
+              { name: "Cloud Computing", details: ["AWS Basics", "Azure Basics", "Cloud Deployment", "Scalable Applications"] }
+];
+
+
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        function loadSkills() {
+            const container = document.getElementById("skills-container");
+            container.innerHTML = "";
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            const filteredSkills = skills.filter(skill =>
+                skill.name.toLowerCase().includes(document.getElementById("search").value.toLowerCase())
+            );
+
+            filteredSkills.slice(startIndex, endIndex).forEach(skill => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <h2>${skill.name}</h2>
+                    <ul>${skill.details.map(detail => `<li>${detail}</li>`).join("")}</ul>
+                `;
+                container.appendChild(card);
+            });
+
+            setupPagination(filteredSkills.length);
+        }
+
+        function setupPagination(totalItems) {
+            const pagination = document.getElementById("pagination-container");
+            pagination.innerHTML = "";
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            const prevButton = document.createElement("button");
+            prevButton.textContent = "Previous";
+            prevButton.disabled = currentPage === 1;
+            prevButton.onclick = () => {
+                currentPage--;
+                loadSkills();
+            };
+            pagination.appendChild(prevButton);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement("button");
+                pageButton.textContent = i;
+                pageButton.disabled = i === currentPage;
+                pageButton.onclick = () => {
+                    currentPage = i;
+                    loadSkills();
+                };
+                pagination.appendChild(pageButton);
+            }
+
+            const nextButton = document.createElement("button");
+            nextButton.textContent = "Next";
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.onclick = () => {
+                currentPage++;
+                loadSkills();
+            };
+            pagination.appendChild(nextButton);
+        }
+
+        function filterSkills() {
+            currentPage = 1;
+            loadSkills();
+        }
+
+        loadSkills();
+    </script>
+</body>
+</html>
