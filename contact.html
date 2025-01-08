@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Cebolenkosi Msweli</title>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -12,35 +15,119 @@
             color: #fff;
         }
 
-        nav {
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #1a1a1a;
         }
 
-        nav ul {
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .menu ul {
             list-style: none;
             display: flex;
-            gap: 15px;
-            margin: 0;
         }
 
-        nav ul li {
-            display: inline;
+        .menu ul li {
+            margin: 0 20px;
         }
 
-        nav ul li a {
-            color: #fff;
+        .menu ul li a {
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            background-color: #ffaa33;
+        .menu ul li a span {
+            margin-right: 8px;
+            font-size: 24px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .menu ul li a:hover span {
+            color: #ffaa33;
+            transform: rotate(20deg);
+        }
+
+        .menu ul li a:hover {
+            color: #ffaa33;
+        }
+
+        .username {
+            color: white;
+            font-size: 18px;
+        }
+
+        #contacts {
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .content h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                display: none;
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu ul li {
+                margin: 10px 0;
+            }
+
+            .menu ul li a {
+                font-size: 20px;
+            }
         }
 
         .contact-section {
@@ -69,6 +156,12 @@
             width: 300px;
             box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
         }
 
         .contact-card h2 {
@@ -79,6 +172,64 @@
         .contact-card p {
             margin: 5px 0;
             color: #aaa;
+        }
+        .contact-card a {
+            color: #51350d;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .contact-card a i {
+            font-size: 24px; /* Reduced icon size */
+            display: block;
+            margin-bottom: 5px; /* Space between the icon and text */
+        }
+        
+        .contact-card a:hover {
+            color: #ffaa33; /* Maintain the hover effect */
+        }
+        
+        .contact-card p {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-card a {
+            color: #ffaa33;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .contact-card a i {
+            font-size: 24px; /* Reduced icon size */
+            display: block;
+            margin-bottom: 5px; /* Space between the icon and text */
+            transition: transform 0.3s ease; /* Smooth transition for transform */
+        }
+        
+        .contact-card a:hover i {
+            transform: rotate(360deg); /* Twist the icon when hovered */
+        }
+        
+        .contact-card a:hover {
+            color: #ffaa33; /* Maintain the hover effect */
+        }
+        
+        .contact-card p {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-card i {
+            font-size: 30px;
+            color: #ffaa33;
+            margin-right: 10px;
         }
 
         footer {
@@ -91,37 +242,79 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div><h2>Cebolenkosi Msweli</h2></div>
-        <ul>
-            <li><a href="Profile.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span id="bar-icon">&#9776;</span>
+                <span id="close-icon" style="display:none;">&times;</span>
+            </div>
+            <nav id="menu" class="menu">
+                <ul>
+                    <li><a href="Profile.html"><span>&#8962;</span> Home</a></li>
+                    <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
+                    <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
+                    <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="username">Cebolenkosi Msweli</div>
+    </header>
 
     <section class="contact-section">
         <h1>Contact Me</h1>
         <div class="contact-info">
             <div class="contact-card">
-                <h2>Email</h2>
-                <p>cebolenkosi@example.com</p>
+                <h2><i class="fas fa-envelope"></i>Email</h2>
+                <div class="email-container">
+                    <a href="mailto:cebomsweli250@gmail.com" class="email-link">
+                        <i class="fas fa-envelope email-icon"></i> 
+                        <span class="email-text">cebomsweli250@gmail.com</span>
+                    </a>
+                </div>
             </div>
             <div class="contact-card">
-                <h2>Phone</h2>
-                <p>+1 (123) 456-7890</p>
+                <h2><i class="fas fa-phone-alt"></i>Phone</h2>
+                <div class="phone-container">
+        <a href="tel:+27768440487" class="phone-link">
+            <i class="fas fa-phone-alt phone-icon"></i> 
+            <span class="phone-text">+27768440487</span>
+        </a>
+    </div>
             </div>
             <div class="contact-card">
-                <h2>Socials</h2>
-                <p>Follow me on LinkedIn, Twitter, and Instagram</p>
+                <h2><i class="fab fa-linkedin"></i>Socials</h2>
+                <p>
+                    <a href="https://www.linkedin.com/in/cebolenkosi-msweli-a02033253/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    
+                    <a href="https://www.instagram.com/czikode/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                </p>
             </div>
+            
         </div>
     </section>
 
     <footer>
         <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            const barIcon = document.getElementById('bar-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            // Toggle menu visibility
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                barIcon.style.display = 'inline';
+                closeIcon.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+                barIcon.style.display = 'none';
+                closeIcon.style.display = 'inline';
+            }
+        }
+    </script>
 </body>
 </html>
