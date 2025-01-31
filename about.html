@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Cebolenkosi Msweli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d3d4d8, #afa7dd); /* New Gradient Background */
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         header {
-            background-color: #333;
+            background-color: #222; /* Darker header background */
             padding: 10px 20px;
             position: fixed;
             top: 0;
@@ -58,18 +60,13 @@
             font-size: 18px;
             display: flex;
             align-items: center;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .menu ul li a span {
             margin-right: 8px;
             font-size: 30px;
             transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .menu ul li a:hover span {
-            color: #ffaa33;
-            transform: rotate(20deg);
         }
 
         .menu ul li a:hover {
@@ -82,33 +79,85 @@
         }
 
         .about {
-            text-align: center;
             padding: 100px 20px;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
 
         .about h1 {
             color: #ffaa33;
             margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 600;
         }
 
-        .about p {
+        .card {
+            background: rgb(37, 35, 35); /* New Card Background Color */
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
             max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
-            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(169, 122, 27, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card i {
+            font-size: 40px;
+            margin-right: 20px;
+            color: #ffaa33; /* Icon Color */
+        }
+
+        .card h2 {
+            color: #71b8c8;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
         ul {
             list-style: none;
             padding: 0;
+            margin-top: 15px;
         }
+
+        ul li {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #1a1a1a;
+            background-color: #222; /* Dark Footer Background */
             color: #aaa;
             margin-top: 20px;
+        }
+        .fas.fa-laptop-code {
+            color: #7b79d9; /* Example: Set to a golden color */
+            margin-left: 10px;
+        }
+        
+        .fas.fa-bullseye {
+            color: #30a4ce; /* Example: Set to a golden color */
+            margin-left: 10px;
+        }
+        
+        .fas.fa-graduation-cap {
+            color: #a5482b; /* Example: Set to a golden color */
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -132,39 +181,40 @@
         <div class="username">Cebolenkosi Msweli</div>
     </header>
 
-    <section class="about">  
-        <h1>Academic Achievements</h1>  
-        <p>  
-            I have always been passionate about <strong>Computer Science and IT</strong>, and my academic journey has been a testament  
-            to my dedication and hard work in this field. With a strong foundation in mathematics and problem-solving, I have  
-            developed expertise in multiple programming languages, including <strong>Java, C++, Python, and C#</strong>.  
-            I have also gained experience in <strong>SQL databases, system design, and web development</strong>.  
-        </p>  
-        <p>  
-            I pursued my degree at the <strong>University of KwaZulu-Natal</strong> from <strong>2021 to 2024</strong>, where I  
-            refined my technical skills and gained a deeper understanding of software development, data analysis, and system architecture.  
-        </p>
-        <p>  
-            During my time at the University of KwaZulu-Natal, I took on the roles of <strong>Tutor</strong> and  
-            <strong>Supplemental Instruction (SI) Leader</strong>, where I mentored students in <strong>Java, Python, and database systems</strong>.  
-            This experience strengthened my leadership, problem-solving, and communication skills, allowing me to support  
-            students in mastering complex concepts.  
-        </p>  
-        <p>  
-            Throughout my academic career, I have worked on several impactful projects, including:  
-            <ul>  
-                <li><strong>DJ's Booking System:</strong> A web-based application designed to simplify event bookings for DJs.</li>  
-                <li><strong>Quiz Game:</strong> An interactive game that enhances learning through engaging challenges.</li>  
-                <li><strong>Career Adviser Chatbot:</strong> A web-based chatbot that provides career guidance using AI and API integration.</li>  
-            </ul>  
-        </p>  
-        <p>  
-            My goal is to continuously grow and adapt as technology evolves, leveraging my knowledge and skills to make  
-            meaningful contributions to the industry. I am always eager to explore new challenges, collaborate on  
-            innovative projects, and stay at the forefront of technological advancements.  
-        </p>  
+    <section class="about">
+        <h1>Academic Achievements</h1>
+
+        <!-- Academic Achievements Card -->
+        <div class="card">
+            <div>
+                <h2>Academic Journey<i class="fas fa-graduation-cap"></i></h2>
+                <p>I have always been passionate about <strong>Computer Science and IT</strong>, developing expertise in multiple programming languages such as <strong>Java, C++, Python, and C#</strong>, as well as experience with <strong>SQL databases, system design, and web development</strong>.</p>
+            </div>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="card">
+            
+            <div>
+                <h2>Projects I Have Worked On<i class="fas fa-laptop-code"></i></h2>
+                <p>During my studies, I worked on several impactful projects:</p>
+                <ul>
+                    <li><strong>DJ's Booking System:</strong> A web-based application designed to simplify event bookings for DJs.</li>
+                    <li><strong>Quiz Game:</strong> An interactive game that enhances learning through engaging challenges.</li>
+                    <li><strong>Career Adviser Chatbot:</strong> A web-based chatbot that provides career guidance using AI and API integration.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Goals Card -->
+        <div class="card">
+            
+            <div>
+                <h2>My Goals<i class="fas fa-bullseye"></i></h2>
+                <p>My goal is to continuously grow and adapt as technology evolves, leveraging my knowledge and skills to make meaningful contributions to the industry. I am always eager to explore new challenges and stay at the forefront of technological advancements.</p>
+            </div>
+        </div>
     </section>
-    
 
     <footer>
         <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
