@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar</title>
+    <title>Home</title>
+    <!-- Add FontAwesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Your other styles here -->
     <style>
         * {
             margin: 0;
@@ -63,17 +67,17 @@
 
         .menu ul li a span {
             margin-right: 8px;
-            font-size: 24px; /* Increased icon size */
+            font-size: 24px;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .menu ul li a:hover span {
-            color: #ffaa33; /* Change icon color to orange */
-            transform: rotate(20deg); /* Rotate icon on hover */
+            color: #ffaa33;
+            transform: rotate(20deg);
         }
 
         .menu ul li a:hover {
-            color: #ffaa33; /* Change text color to orange */
+            color: #ffaa33;
         }
 
         .username {
@@ -81,30 +85,12 @@
             font-size: 18px;
         }
 
-        #contacts {
-            padding: 40px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-        }
-
-        .content h1 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -132,7 +118,7 @@
                 font-size: 20px;
             }
         }
-        
+
         .profile {
             text-align: center;
             margin: 30px 0;
@@ -197,7 +183,8 @@
             opacity: 1;
         }
 
-        .card h2 {
+        .card h2,
+        .card h3 {
             color: #ffaa33;
             z-index: 1;
             position: relative;
@@ -214,6 +201,81 @@
             margin: 5px 0;
         }
 
+        /* New style for certificates section */
+        #certificates {
+            margin: 20px 0;
+            padding-top: 20px;
+            border-top: 3px solid; /* Remove fixed color */
+            border-image: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff); /* Add gradient */
+            border-image-slice: 1; /* Ensures the gradient is applied to the border */
+            animation: colorShift 3s ease-in-out infinite; /* Adds the color shifting effect */
+            width: 90%; /* Reduce width of the section */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Animation to shift colors */
+        @keyframes colorShift {
+            0% {
+                border-image-source: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff);
+            }
+            25% {
+                border-image-source: linear-gradient(90deg, #ff5733, #33ffaa, #5733ff, #ffaa33);
+            }
+            50% {
+                border-image-source: linear-gradient(90deg, #33ffaa, #5733ff, #ffaa33, #ff5733);
+            }
+            75% {
+                border-image-source: linear-gradient(90deg, #5733ff, #ffaa33, #ff5733, #33ffaa);
+            }
+            100% {
+                border-image-source: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff);
+            }
+        }
+        
+        #certificates h2 {
+            color: #ffaa33;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .certificate-card {
+            background-color: #1a1a1a;
+            border: 1px solid #ffaa33;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .certificate-card h3 {
+            color: #ffaa33;
+            z-index: 1;
+            position: relative;
+            margin-top: -15px;
+        }
+        
+        .certificate-card p {
+            color: #aaa;
+            z-index: 1;
+            position: relative;
+            margin-top: 15px;
+        }
+        
         footer {
             text-align: center;
             padding: 10px;
@@ -221,6 +283,67 @@
             color: #aaa;
             margin-top: 20px;
         }
+        
+        .certificate-card {
+            background-color: #1a1a1a;
+            border: 1px solid #ffaa33;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        /* Position h3 and p absolutely over the image */
+        .certificate-card h3,
+        .certificate-card p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px;
+            color: rgb(239, 235, 110);
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            text-align: center;
+            z-index: 1; /* Ensure the text is above the image */
+        }
+        
+        
+        
+        .certificate-card p {
+            font-size: 14px;
+        }
+        
+        /* Hover effects */
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover h3, 
+        .certificate-card:hover p {
+            opacity: 0.9; /* Slight opacity change on hover */
+        }
+        .card h2 i {
+            margin-right: 10px;
+            font-size: 24px; /* Adjust the icon size */
+            color: #fff; /* Aligns the icon color with the theme */
+        }
+        
     </style>
 </head>
 <body>
@@ -251,7 +374,7 @@
 
     <section class="cards" id="skills">
         <div class="card">
-            <h2>Python</h2>
+            <h2><i class="fab fa-python"></i>Python</h2>
             <ul>
                 <li>Created a Career Advisor Chatbot</li>
                 <li>Data Analysis Projects</li>
@@ -260,7 +383,7 @@
         </div>
 
         <div class="card">
-            <h2>C#</h2>
+            <h2><i class="fa-brands fa-microsoft"></i> C#</h2>
             <ul>
                 <li>Developed a DJ Booking System</li>
                 <li>Experience with ASP.NET</li>
@@ -269,7 +392,7 @@
         </div>
 
         <div class="card">
-            <h2>C++</h2>
+            <h2><i class="fas fa-code"></i>C++</h2>
             <ul>
                 <li>Created a Quiz Game</li>
                 <li>Worked on algorithm-based projects</li>
@@ -278,9 +401,32 @@
         </div>
     </section>
 
+    <section id="certificates">
+        <h2>Certificates and Achievements</h2>
+        <div class="cards">
+            <div class="certificate-card">
+                <a href="AdvisorAndConsultingJob.pdf" download="AdvisorAndConsultingJob.pdf">
+                    <img src="advisor.png" alt="Career Advisor Certificate">
+                    
+                    <p>View Certificate</p>
+                </a>
+            </div>
+    
+            <div class="certificate-card">
+                <a href="CybersecurityJobSimualtion.pdf" download="CybersecurityJobSimualtion.pdf">
+                    <img src="cyber.png" alt="Cybersecurity Certificate">
+                    
+                    <p>View Certificate</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
     <footer>
         <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
     </footer>
+
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
