@@ -4,247 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Cebolenkosi Msweli</title>
-    <style>
-        body {
-            margin: 0;
+   <style>
+    body {
+        margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
-            color: #fff;
+            background-color: #2c003e;
+            color: #36454F; /* Charcoal color */
+    }
+    .username {
+        display: inline-block;
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        animation: moveUsername 10s linear infinite; /* Animate the username to move left to right */
+    }
+    
+    .username span {
+        display: inline-block;
+        animation: rotateCharacter 2s infinite, colorChange 4s infinite; /* Apply both rotation and color change */
+        padding: 0 2px;  /* Add some space between letters */
+    }
+    
+    /* Alternate colors between each character */
+    .username span:nth-child(odd) {
+        color: #D1A0FF;  /* Light Purple */
+    }
+    
+    .username span:nth-child(even) {
+        color: #8A2BE2;  /* Blue-Violet */
+    }
+    
+    /* Animation for the rotating effect */
+    @keyframes rotateCharacter {
+        0% {
+            transform: rotateY(0deg);
         }
-
-        header {
-            background-color: #333;
-            padding: 10px 20px;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        50% {
+            transform: rotateY(180deg);
         }
-
-        .navbar {
-            display: flex;
-            align-items: center;
+        100% {
+            transform: rotateY(360deg);
         }
+    }
+    
+    
+    
 
-        .hamburger {
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            margin-right: 20px;
+    /* Define the animation to alternate colors */
+    @keyframes colorChange {
+        0% {
+            color: #4d78db; /* Primary color */
         }
+        50% {
+            color: #7c8d1f; /* Secondary color */
+        }
+        100% {
+            color: #8d288f; /* Primary color */
+        }
+        100% {
+            color: #11ade6; /* Primary color */
+        }
+    }
+    /* Define the shake animation */
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-5px);
+        }
+        50% {
+            transform: translateX(5px);
+        }
+        75% {
+            transform: translateX(-5px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    header {
+        background-color: #4a148c; /* Dark grey background */
+        padding: 10px 20px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
+    .navbar {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        font-size: 30px;
+        color: white; /* White icon */
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu ul {
+        list-style: none;
+        display: flex;
+    }
+
+    .menu ul li {
+        margin: 0 20px;
+    }
+
+    .menu ul li a {
+        color: white; /* White text */
+        text-decoration: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .menu ul li a span {
+        margin-right: 8px;
+        font-size: 24px; /* Increased icon size */
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .menu ul li a:hover span {
+        color: #ffaa33; /* Orange icon on hover */
+        transform: rotate(20deg); /* Rotate icon on hover */
+    }
+
+    .menu ul li a:hover {
+        color: #e2e2ed; /* Orange text on hover */
+    }
+
+    .username {
+        color: white; /* White text */
+        font-size: 18px;
+    }
+
+    #contacts {
+        padding: 40px;
+        background-color: #ffffff; /* White background */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+    }
+
+    .content h1 {
+        font-size: 2em;
+        color: #333; /* Dark grey text */
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
         .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333; /* Dark grey background */
             display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            z-index: 100; /* Ensure it stays on top of other content */
         }
 
         .menu ul {
-            list-style: none;
-            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .menu ul li {
-            margin: 0 20px;
+            margin: 10px 0;
         }
 
         .menu ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 20px;
         }
 
-        .menu ul li a span {
-            margin-right: 8px;
-            font-size: 24px; /* Increased icon size */
-            transition: transform 0.3s ease, color 0.3s ease;
+        body {
+            padding-top: 50px; /* Adjust this value depending on navbar height */
         }
+    }
 
-        .menu ul li a:hover span {
-            color: #ffaa33; /* Change icon color to orange */
-            transform: rotate(20deg); /* Rotate icon on hover */
-        }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333; /* Dark grey background */
+        color: white; /* White text */
+        margin-top: 40px;
+    }
+    .skill-details {
+        color: #36454F; /* Charcoal color */
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    
+    .skills {
+        text-align: center;
+        margin: 30px 0;
+    }
 
-        .menu ul li a:hover {
-            color: #ffaa33; /* Change text color to orange */
-        }
+    .skills h1 {
+        color: #da70d6;; /* Orange text */
+        margin-bottom: 20px;
+    }
 
-        .username {
-            color: white;
-            font-size: 18px;
-        }
+    .search-bar {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
 
-        #contacts {
-            padding: 40px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-        }
-
-        .content h1 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        @media (max-width: 768px) {
-            .menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                display: none;
-                flex-direction: column;
-                padding: 10px 0;
-                z-index: 100; /* Ensure it stays on top of other content */
-            }
-        
-            .menu ul {
-                flex-direction: column;
-                align-items: center;
-            }
-        
-            .menu ul li {
-                margin: 10px 0;
-            }
-        
-            .menu ul li a {
-                font-size: 20px;
-            }
-        
-            /* Ensure the body content is not hidden behind the fixed navbar */
-            body {
-                padding-top: 50px; /* Adjust this value depending on navbar height */
-            }
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .menu {
-                position: absolute;
-                top: 50px;
-                left: 0;
-                right: 0;
-                background-color: #333;
-                display: none;
-                flex-direction: column;
-                padding: 10px 0;
-            }
-
-            .menu ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .menu ul li {
-                margin: 10px 0;
-            }
-
-            .menu ul li a {
-                font-size: 20px;
-            }
-        }
-        .skills {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .skills h1 {
-            color: #ffaa33;
-            margin-bottom: 20px;
-        }
-
-        .search-bar {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-bar input {
-            padding: 10px;
+    .search-bar input {
+        padding: 10px;
             width: 50%;
-            border: 2px solid #ffaa33;
+            border: 2px solid #da70d6;
             border-radius: 20px;
             outline: none;
             font-size: 16px;
-        }
+            background-color: #d5d0d8;
+            color: #111010;
+    }
 
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: #1a1a1a;
-            border: 1px solid #ffaa33;
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .card ul {
+        list-style-type: none; /* Removes bullet points */
+        padding-left: 0; /* Removes default padding */
+    }
+    .card {
+            background-color: #f9fafb;
+            border: 1.5px solid #da70d6;
             border-radius: 10px;
             padding: 20px;
             width: 300px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            box-shadow: 0 4px 10px rgba(218, 112, 214, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
-        }
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
-        }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4); /* Orange shadow on hover */
+    }
 
-        .card h2 {
-            color: #ffaa33;
-        }
+    .card h2 {
+        color: #8c5cbb; /* Orange text */
+    }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #1a1a1a;
-            color: #aaa;
-            margin-top: 20px;
-        }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
 
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
+    .pagination button {
+        background-color: #8c5cbb; /* Orange background */
+        color: #0d0d0d; /* Black text */
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .pagination button {
-            background-color: #ffaa33;
-            color: #0d0d0d;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .pagination button:hover {
+        background-color: #39aec8; /* Lighter orange on hover */
+    }
 
-        .pagination button:hover {
-            background-color: #ffc966;
-        }
-
-        .pagination button:disabled {
-            background-color: #555;
-            cursor: not-allowed;
-        }
-    </style>
+    .pagination button:disabled {
+        background-color: #555; /* Grey background */
+        cursor: not-allowed;
+    }
+    h1 {
+        background: linear-gradient(270deg, #50b6bb, #272c1b, #d896ff);
+        background-size: 400% 400%;
+        color: white;
+        padding: 10px 40px; /* Adjust padding for a wider and shorter look */
+        text-align: center;
+        border-radius: 10px;
+        display: inline-block;
+        width: 80%; /* Increase width */
+        height: 50px; /* Decrease height */
+        line-height: 50px; /* Ensure text is vertically centered */
+        animation: backgroundAnimation 6s infinite alternate;
+    }
+    
+    @keyframes backgroundAnimation {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+</style>
 </head>
 <body>
     <header>
@@ -259,15 +328,20 @@
                     <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
                     <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
                     <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="experience.html"><span>&#128188;</span> Experience</a></li>
                     <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
+                    
                 </ul>
             </nav>
         </div>
-        <div class="username">Cebolenkosi Msweli</div>
+        <div class="username">
+            
+        </div>
     </header>
 
     <section class="skills">
-        <h1>My Skills</h1>
+        <h1 id="typing-text">My Skills</h1>
+        
         <div class="search-bar">
             <input type="text" id="search" placeholder="Search skills..." oninput="filterSkills()">
         </div>
@@ -285,17 +359,32 @@
 
     <script>
         const skills = [
-              { name: "Python", details: ["Data Analysis", "Web Development with Flask", "Automation Scripts"] },
-              { name: "C#", details: ["Desktop Applications", "ASP.NET Development", "Game Development Basics"] },
-              { name: "C++", details: ["Algorithm Design", "OOP Concepts", "Data Structures"] },
-              { name: "HTML & CSS", details: ["Responsive Web Design", "Semantic HTML", "CSS Animations", "Flexbox and Grid Layouts", "Cross-Browser Compatibility"] },
-              { name: "JavaScript", details: ["DOM Manipulation", "Event Handling", "Asynchronous Programming (Promises, Async/Await)", "API Integration (Fetch/Axios)"] },
-              { name: "Git", details: ["Version Control", "Branching and Merging", "Collaboration with GitHub/GitLab", "Resolving Merge Conflicts"] },
-              { name: "SQL", details: ["Database Design", "Complex Query Writing", "Data Manipulation", "Database Optimization"] },
-              { name: "Java", details: ["Object-Oriented Programming", "Multithreading", "JavaFX GUI Development", "API Integration"] },
-              { name: "React", details: ["Component-Based Architecture", "State Management", "React Hooks", "Building SPAs (Single Page Applications)"] },
-              { name: "Linux", details: ["Shell Scripting", "System Administration", "File System Management", "User Management"] },
-              { name: "Cloud Computing", details: ["AWS Basics", "Azure Basics", "Cloud Deployment", "Scalable Applications"] }
+        { name: "Python", details: ["Data Analysis", "Web Development with Flask", "Automation Scripts"] },
+        { name: "Java", details: ["Object-Oriented Programming", "Data Structures","Algorithm Design", "JavaFX GUI Development"] },
+        { name: "C++", details: ["Algorithm Design", "OOP Concepts", "Data Structures","Game Development Basics"] },
+        { name: "C#", details: ["Desktop Applications", "ASP.NET Development"] },
+        { name: "HTML & CSS", details: ["Responsive Web Design", "Semantic HTML", "CSS Animations", "Flexbox and Grid Layouts", "Cross-Browser Compatibility"] },
+        { name: "JavaScript", details: ["DOM Manipulation", "Event Handling", "Asynchronous Programming (Promises, Async/Await)"] },
+        { name: "SQL", details: ["Database Design", "Complex Query Writing", "Data Manipulation", "Database Optimization"] },
+        { name: "SSMS", details: ["SQL Server Management Studio", "Database Querying", "Database Administration", "Performance Tuning"] },
+        { name: "PostgreSQL", details: ["Relational Database", "Advanced Queries", "Indexing", "Data Integrity"] },
+        { name: "System Design", details: ["Scalable Architecture", "Fault Tolerance", "High Availability"] },
+        { name: "AI & Machine Learning", details: ["Fundamentals of ML", "Supervised Learning", "Unsupervised Learning", "Model Evaluation"] },
+        { name: "RESTful API Development", details: ["API Design", "CRUD Operations", "Authentication", "Versioning"] },
+        { name: "Server-side CSS", details: ["Responsive Design", "SASS/SCSS", "Preprocessing", "Modular CSS"] },
+        { name: "SEO Principles", details: ["Keyword Optimization", "On-Page SEO", "Link Building", "Mobile-Friendly Design"] },
+        { name: "Version Control", details: ["GitHub","Branching and Merging", "Pull Requests"] },
+        { name: "Cloud Computing", details: ["AWS Basics", "Azure Basics", "Google Cloud Basics", "Cloud Deployment", "Scalable Applications"] },
+        { name: "Data Analysis", details: ["Excel", "Power BI", "Data Visualization", "Data Cleaning"] },
+        { name: "Web Development", details: ["ASP.NET", "HTML", "CSS", "JavaScript", "Responsive Web Design", "Cross-Browser Compatibility"] },
+        { name: "Adaptability", details: ["Quickly learning new technologies", "Adjusting to project changes", "Adapting to team workflows"] },
+        { name: "Teamwork", details: ["Collaboration with cross-functional teams", "Sharing knowledge with peers", "Contributing to group problem-solving"] },
+        { name: "Leadership", details: ["Leading projects and teams", "Mentoring juniors", "Providing feedback and guidance"] },
+        { name: "Problem-Solving", details: ["Identifying root causes of issues", "Brainstorming solutions", "Optimizing workflows"] },
+        { name: "Communication", details: ["Explaining complex concepts to non-technical stakeholders", "Clear documentation", "Regular updates on project progress"] },
+        { name: "Creativity", details: ["Innovative thinking for solution design", "Improvising under limited resources", "Building custom features and functionalities"] },
+        { name: "Time Management", details: ["Balancing multiple tasks", "Efficiently prioritizing project deadlines", "Managing workloads effectively"] },
+        { name: "Client-Centered Approach", details: ["Understanding client requirements", "Providing value-driven solutions", "Handling client feedback with professionalism"] }
 ];
 
 
@@ -332,7 +421,7 @@
             const totalPages = Math.ceil(totalItems / itemsPerPage);
 
             const prevButton = document.createElement("button");
-            prevButton.textContent = "Previous";
+            prevButton.textContent = "<";
             prevButton.disabled = currentPage === 1;
             prevButton.onclick = () => {
                 currentPage--;
@@ -352,7 +441,7 @@
             }
 
             const nextButton = document.createElement("button");
-            nextButton.textContent = "Next";
+            nextButton.textContent = ">";
             nextButton.disabled = currentPage === totalPages;
             nextButton.onclick = () => {
                 currentPage++;
@@ -385,6 +474,56 @@
                 closeIcon.style.display = 'inline';
             }
         }
+        //Writign and clearign effect
+        const username = "Cebolenkosi Msweli";
+        const usernameContainer = document.querySelector(".username");
+
+        let i = 0;
+
+        function typeAndClearText() {
+            if (i < username.length) {
+               usernameContainer.textContent += username.charAt(i);
+               i++;
+               setTimeout(typeAndClearText, 100); // Type character every 100ms
+            } else {
+               setTimeout(() => {
+               usernameContainer.textContent = "";
+               i = 0;
+               typeAndClearText(); // Restart the typing effect after clearing
+            }, 2000); // Wait for 2 seconds before clearing the text
+        }
+    }
+
+    typeAndClearText();
+
+    //typic effect in the header
+    const text = "My Skills";
+        const typingSpeed = 150; // Speed of typing (in milliseconds)
+        const erasingSpeed = 100; // Speed of erasing
+        const delayBetween = 1500; // Delay before erasing
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const h1 = document.getElementById("typing-text");
+
+            if (!isDeleting && index <= text.length) {
+                h1.textContent = text.substring(0, index);
+                index++;
+                setTimeout(typeEffect, typingSpeed);
+            } else if (isDeleting && index >= 0) {
+                h1.textContent = text.substring(0, index);
+                index--;
+                setTimeout(typeEffect, erasingSpeed);
+            } else {
+                isDeleting = !isDeleting;
+                setTimeout(typeEffect, delayBetween);
+            }
+        }
+
+        typeEffect();
+   
+
     </script>
 </body>
 </html>

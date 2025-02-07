@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
         header {
-            background-color: #333;
+            background-color: #4a148c;
             padding: 10px 20px;
             position: relative;
             display: flex;
@@ -155,7 +155,7 @@
             padding: 10px 20px;
             margin: 5px;
             border: none;
-            background-color: #333;
+            background-color: #131010;
             color: white;
             cursor: pointer;
             border-radius: 5px;
@@ -306,6 +306,7 @@
                     <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
                     <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
                     <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="experience.html"><span>&#128188;</span> Experience</a></li>
                     <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
                 </ul>
             </nav>
@@ -397,7 +398,7 @@
         function setupPagination(sectionId, prevBtnId, nextBtnId, pageSpanId) {
             let index = 0;
             const items = document.querySelectorAll(`#${sectionId} .project-card`);
-            const perPage = 4;
+            const perPage = 2;
             
             function showPage() {
                 items.forEach((item, i) => {

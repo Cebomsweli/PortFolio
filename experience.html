@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4a148c;
+            padding: 10px 20px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin: 0 20px;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .menu ul li a span {
+            margin-right: 8px;
+            font-size: 24px; /* Increased icon size */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .menu ul li a:hover span {
+            color: #ffaa33; /* Change icon color to orange */
+            transform: rotate(20deg); /* Rotate icon on hover */
+        }
+
+        .menu ul li a:hover {
+            color: #ffaa33; /* Change text color to orange */
+        }
+
+        .username {
+            color: white;
+            font-size: 18px;
+        }
+
+        #contacts {
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .content h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        #experience {
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        
+        .experience-category {
+            margin-bottom: 30px;
+        }
+        
+        .category-title {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .experience-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        
+        .experience-card h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .experience-card p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .experience-card ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .experience-card ul li {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        /* Add hover effect to experience card */
+        .experience-card:hover {
+            transform: translateY(-5px); /* Lift the card */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Increase shadow */
+            background-color: #f9f9f9; /* Light background color on hover */
+        }
+        
+        /* Category-specific styles */
+        .experience-category:nth-child(1) .experience-card {
+            border-left: 5px solid #4CAF50; /* Green for Jobs */
+        }
+        
+        .experience-category:nth-child(2) .experience-card {
+            border-left: 5px solid #FF9800; /* Orange for Internships */
+        }
+        
+        .experience-category:nth-child(3) .experience-card {
+            border-left: 5px solid #9C27B0; /* Purple for Tutoring */
+        }
+        
+        /* Hover effect for different categories */
+        .experience-category:nth-child(1) .experience-card:hover {
+            border-left: 5px solid #45a049; /* Darker green for hover */
+        }
+        
+        .experience-category:nth-child(2) .experience-card:hover {
+            border-left: 5px solid #f57c00; /* Darker orange for hover */
+        }
+        
+        .experience-category:nth-child(3) .experience-card:hover {
+            border-left: 5px solid #8e24aa; /* Darker purple for hover */
+        }
+        
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            .experience-card {
+                padding: 15px;
+            }
+        
+            .experience-card h3 {
+                font-size: 1.3em;
+            }
+        
+            .experience-card p {
+                font-size: 1em;
+            }
+        
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu ul li {
+                margin: 10px 0;
+            }
+
+            .menu ul li a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="hamburger" onclick="toggleMenu()">
+                <span id="bar-icon">&#9776;</span>
+                <span id="close-icon" style="display:none;">&times;</span>
+            </div>
+            <nav id="menu" class="menu">
+                <ul>
+                    <li><a href="Profile.html"><span>&#8962;</span> Home</a></li>
+                    <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
+                    <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
+                    <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="experience.html"><span>&#128188;</span> Experience</a></li>
+                    <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+        <div class="username">Cebolenkosi Msweli</div>
+    </header>
+
+    <section id="experience">
+        <div class="experience-category">
+            <h2 class="category-title">Jobs</h2>
+            <!--Job Experience-->
+        </div>
+        <div class="experience-category">
+            <h2 class="category-title">Graduate Internships</h2>
+            <div class="experience-card">
+                <h3>Electronic Arts Software Engineering Virtual Experience Program</h3>
+                <p><strong>Duration:</strong> February 2025</p>
+                <ul>
+                    <li>Proposed a new feature for EA Sports College Football</li>
+                    <li>Created a class diagram and header file in C++ for the feature</li>
+                    <li>Patched a bug and optimized the codebase</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Mastercard Cybersecurity Virtual Experience Program</h3>
+                <p><strong>Duration:</strong> January 2025</p>
+                <ul>
+                    <li>Served as an analyst on Mastercard’s Security Awareness Team</li>
+                    <li>Identified and reported security threats such as phishing</li>
+                    <li>Implemented training courses and procedures for business teams</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Mastercard Advisors & Consulting Services Job Simulation</h3>
+                <p><strong>Duration:</strong> January 2025</p>
+                <ul>
+                    <li>Completed a job simulation on data-driven marketing analysis</li>
+                    <li>Utilized statistical analysis and comparative study to identify key trends</li>
+                    <li>Developed and presented a strategic marketing plan</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="experience-category">
+            <h2 class="category-title">Tutoring Experience</h2>
+            <div class="experience-card">
+                <h3>Tutor - University of KwaZulu-Natal</h3>
+                <p><strong>Duration:</strong> Aug 2024 – Nov 2024</p>
+                <ul>
+                    <li>Led sessions on Java programming and data structures</li>
+                    <li>Improved student understanding through hands-on coding demonstrations</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>SI Leader - University of KwaZulu-Natal</h3>
+                <p><strong>Duration:</strong> Mar 2024 – Nov 2024</p>
+                <ul>
+                    <li>Facilitated study sessions for mathematical concepts</li>
+                    <li>Developed lesson plans to meet diverse learning needs</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Tutor - University of KwaZulu-Natal</h3>
+                <p><strong>Duration:</strong> Mar 2024 – Jun 2024</p>
+                <ul>
+                    <li>Tutored Python programming focusing on data structures and algorithms</li>
+                    <li>Provided individualized support to foster coding confidence</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Your Company</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            const barIcon = document.getElementById('bar-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            // Toggle menu visibility
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                barIcon.style.display = 'inline';
+                closeIcon.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+                barIcon.style.display = 'none';
+                closeIcon.style.display = 'inline';
+            }
+        }
+    </script>
+</body>
+</html>

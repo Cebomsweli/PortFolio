@@ -18,12 +18,13 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
+            background-color: linear-gradient(135deg, #3c7d7d, #afa7dd); /* New Gradient Background */
             color: #fff;
+            background: linear-gradient(135deg, #d3d4d8, #afa7dd);
         }
 
         header {
-            background-color: #333;
+            background-color: #4a148c;
             padding: 10px 20px;
             position: relative;
             display: flex;
@@ -128,16 +129,16 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 3px solid #ffaa33;
+            border: 1.5px solid #30bde4;
         }
 
         .profile h1 {
             margin: 10px 0 5px;
-            color: #ffaa33;
+            color: #434248;
         }
 
         .profile p {
-            color: #aaa;
+            color: #434248;
         }
 
         .cards {
@@ -149,8 +150,8 @@
         }
 
         .card {
-            background-color: #1a1a1a;
-            border: 1px solid #ffaa33;
+            background-color: #434248;
+            border: 1px solid #2fc6e4;
             border-radius: 10px;
             padding: 20px;
             width: 300px;
@@ -185,7 +186,7 @@
 
         .card h2,
         .card h3 {
-            color: #ffaa33;
+            color: #35bdcd;
             z-index: 1;
             position: relative;
         }
@@ -234,14 +235,14 @@
         }
         
         #certificates h2 {
-            color: #ffaa33;
+            color: #434248;
             text-align: center;
             margin-bottom: 20px;
         }
         
         .certificate-card {
             background-color: #1a1a1a;
-            border: 1px solid #ffaa33;
+            border: 1px solid #43a0c2;
             border-radius: 10px;
             width: 300px;
             text-align: center;
@@ -263,7 +264,7 @@
         }
         
         .certificate-card h3 {
-            color: #ffaa33;
+            color: #434248;
             z-index: 1;
             position: relative;
             margin-top: -15px;
@@ -286,7 +287,7 @@
         
         .certificate-card {
             background-color: #1a1a1a;
-            border: 1px solid #ffaa33;
+            border: 1.5px solid #1fb0d8;
             border-radius: 10px;
             width: 300px;
             text-align: center;
@@ -315,7 +316,7 @@
             right: 0;
             width: 100%;
             padding: 10px;
-            color: rgb(239, 235, 110);
+            color: rgb(34, 195, 239);
             background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
             text-align: center;
             z-index: 1; /* Ensure the text is above the image */
@@ -343,7 +344,77 @@
             font-size: 24px; /* Adjust the icon size */
             color: #fff; /* Aligns the icon color with the theme */
         }
+        #certificate-cards {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         
+        .certificate-set {
+            display: none;
+        }
+        
+        .certificate-set.active {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .certificate-card {
+            width: 300px;
+            background-color: #1a1a1a;
+            border: 1.5px solid #1fb0d8;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .certificate-card p {
+            color: rgb(34, 195, 239);
+            background: rgba(0, 0, 0, 0.7); 
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .navigation-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .navigation-buttons button {
+            background-color: #ffaa33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+        
+        .navigation-buttons button:hover {
+            background-color: #ff5733;
+        }
+        
+        #page-number {
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -359,7 +430,10 @@
                     <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
                     <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
                     <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="experience.html"><span>&#128188;</span> Experience</a></li>
                     <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
+                    
+
                 </ul>
             </nav>
         </div>
@@ -367,7 +441,7 @@
     </header>
 
     <section class="profile" id="home">
-        <img src="cebo_portfloi.jpg" alt="Cebolenkosi Msweli">
+        <img src="cebo.jpg" alt="Cebolenkosi Msweli">
         <h1>Hello, I'm Cebolenkosi Msweli</h1>
         <p>A Computer Science and IT graduate passionate about technology and problem-solving.</p>
     </section>
@@ -403,42 +477,68 @@
 
     <section id="certificates">
         <h2>Certificates and Achievements</h2>
-        <div class="cards">
-            <div class="certificate-card">
-                <a href="AdvisorAndConsultingJob.pdf" download="AdvisorAndConsultingJob.pdf">
-                    <img src="advisor.png" alt="Career Advisor Certificate">
-                    
-                    <p>View Certificate</p>
-                </a>
+        <div class="cards" id="certificate-cards">
+            <!-- Certificate Set 1 -->
+            <div class="certificate-set">
+                <div class="certificate-card">
+                    <a href="AdvisorAndConsultingJob.pdf" download="AdvisorAndConsultingJob.pdf">
+                        <img src="advisor.png" alt="Career Advisor Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="CybersecurityJobSimualtion.pdf" download="CybersecurityJobSimualtion.pdf">
+                        <img src="cyber.png" alt="Cybersecurity Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="UTAP_Stash_Certificate2024.pdf" download="UTAP_Stash_Certificate2024.pdf">
+                        <img src="online.png" alt="Utap Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
             </div>
     
-            <div class="certificate-card">
-                <a href="CybersecurityJobSimualtion.pdf" download="CybersecurityJobSimualtion.pdf">
-                    <img src="cyber.png" alt="Cybersecurity Certificate">
-                    
-                    <p>View Certificate</p>
-                </a>
+            <!-- Certificate Set 2 -->
+            <div class="certificate-set">
+                <div class="certificate-card">
+                    <a href="C++ Certificate.pdf" download="C++ Certificate.pdf">
+                        <img src="C++ Certificate.jpg" alt="C++ Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="Java_Certificate.pdf" download="Java_Certificate.pdf">
+                        <img src="java.png" alt="Java Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="AWS_Certificate.pdf" download="AWS_Certificate.pdf">
+                        <img src="aws.png" alt="AWS Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
             </div>
-
-            <div class="certificate-card">
-                <a href="UTAP_Stash_Certificate2024.pdf" download="UTAP_Stash_Certificate2024.pdf">
-                    <img src="online.png" alt="Utap Certificate">
-                    
-                    <p>View Certificate</p>
-                </a>
-            </div>
-
-            <div class="certificate-card">
-                <a href="C++ Certificate.pdf" download="C++ Certificate.pdf">
-                    <img src="C++ Certificate.jpg" alt="Utap Certificate">
-                    
-                    <p>View Certificate</p>
-                </a>
-            </div>
+    
+            <!-- Add more sets as needed -->
         </div>
+    
+        <!-- Buttons to navigate between certificate sets -->
+    <div class="navigation-buttons">
+        <button id="prev-btn" onclick="showCertificates('prev')"><</button>
+        <span id="page-number">1</span>
+        <button id="next-btn" onclick="showCertificates('next')">></button>
+    </div>
     </section>
     
-
+   <!--Experience seesion-->
+   
     <footer>
         <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
     </footer>
@@ -460,6 +560,42 @@
                 closeIcon.style.display = 'inline';
             }
         }
+
+        //Pagination
+        let currentSetIndex = 0;
+        const certificateSets = document.querySelectorAll('.certificate-set');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageNumber = document.getElementById('page-number');
+
+        // Initialize by showing the first set of certificates
+        certificateSets[currentSetIndex].classList.add('active');
+        updatePageNumber();
+
+        // Function to show the next or previous set of certificates
+        function showCertificates(direction) {
+        // Remove the active class from the current set
+        certificateSets[currentSetIndex].classList.remove('active');
+    
+        // Update the current set index based on the direction
+        if (direction === 'next') {
+           currentSetIndex = (currentSetIndex + 1) % certificateSets.length; // Loop back to the first set
+        } else if (direction === 'prev') {
+           currentSetIndex = (currentSetIndex - 1 + certificateSets.length) % certificateSets.length; // Loop to the last set
+        }
+
+        // Add the active class to the new set
+        certificateSets[currentSetIndex].classList.add('active');
+    
+        // Update the page number display
+        updatePageNumber();
+    }
+
+    // Function to update the page number
+    function updatePageNumber() {
+       pageNumber.textContent = `Page ${currentSetIndex + 1}`;
+    }
+
     </script>
 </body>
 </html>

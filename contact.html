@@ -11,12 +11,12 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
+            background-color: #2d0e5f; /* Dark purple */
             color: #fff;
         }
 
         header {
-            background-color: #333;
+            background-color: #4a148c; /* Purple */
             padding: 10px 20px;
             position: relative;
             display: flex;
@@ -65,12 +65,12 @@
         }
 
         .menu ul li a:hover span {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple hover effect */
             transform: rotate(20deg);
         }
 
         .menu ul li a:hover {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple hover effect */
         }
 
         .username {
@@ -87,7 +87,7 @@
 
         .content h1 {
             font-size: 2em;
-            color: #333;
+            color: #4a148c; /* Purple */
             margin-bottom: 20px;
         }
 
@@ -99,7 +99,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: #4a148c; /* Purple */
             color: white;
             margin-top: 40px;
         }
@@ -110,7 +110,7 @@
                 top: 50px;
                 left: 0;
                 right: 0;
-                background-color: #333;
+                background-color: #4a148c; /* Purple */
                 display: none;
                 flex-direction: column;
                 padding: 10px 0;
@@ -136,7 +136,7 @@
         }
 
         .contact-section h1 {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple */
             margin-bottom: 20px;
         }
 
@@ -149,8 +149,8 @@
         }
 
         .contact-card {
-            background-color: #1a1a1a;
-            border: 1px solid #ffaa33;
+            background-color: #3e1f5d; /* Deep purple */
+            border: 1px solid #ff80ff; /* Light purple border */
             border-radius: 10px;
             padding: 20px;
             width: 300px;
@@ -165,7 +165,7 @@
         }
 
         .contact-card h2 {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple */
             margin-bottom: 10px;
         }
 
@@ -173,32 +173,9 @@
             margin: 5px 0;
             color: #aaa;
         }
+
         .contact-card a {
-            color: #51350d;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-            font-size: 16px;
-            text-align: center;
-        }
-        
-        .contact-card a i {
-            font-size: 24px; /* Reduced icon size */
-            display: block;
-            margin-bottom: 5px; /* Space between the icon and text */
-        }
-        
-        .contact-card a:hover {
-            color: #ffaa33; /* Maintain the hover effect */
-        }
-        
-        .contact-card p {
-            padding: 0;
-            margin: 0;
-        }
-        
-        .contact-card a {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple */
             text-decoration: none;
             display: inline-block;
             margin: 10px;
@@ -218,25 +195,25 @@
         }
         
         .contact-card a:hover {
-            color: #ffaa33; /* Maintain the hover effect */
+            color: #ff80ff; /* Maintain the hover effect */
         }
         
         .contact-card p {
             padding: 0;
             margin: 0;
         }
-        
+
         .contact-card i {
             font-size: 30px;
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple icon */
             margin-right: 10px;
         }
 
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #1a1a1a;
-            color: #aaa;
+            background-color: #3e1f5d; /* Deep purple */
+            color: #ddd;
             margin-top: 20px;
         }
     </style>
@@ -254,6 +231,7 @@
                     <li><a href="about.html"><span>&#8505;</span> About Me</a></li>
                     <li><a href="project.html"><span>&#128736;</span> Projects</a></li>
                     <li><a href="skills.html"><span>&#9881;</span> Skills</a></li>
+                    <li><a href="experience.html"><span>&#128188;</span> Experience</a></li>
                     <li><a href="contact.html"><span>&#9993;</span> Contact</a></li>
                 </ul>
             </nav>
@@ -276,21 +254,19 @@
             <div class="contact-card">
                 <h2><i class="fas fa-phone-alt"></i>Phone</h2>
                 <div class="phone-container">
-        <a href="tel:+27768440487" class="phone-link">
-            <i class="fas fa-phone-alt phone-icon"></i> 
-            <span class="phone-text">+27768440487</span>
-        </a>
-    </div>
+                    <a href="tel:+27768440487" class="phone-link">
+                        <i class="fas fa-phone-alt phone-icon"></i> 
+                        <span class="phone-text">+27768440487</span>
+                    </a>
+                </div>
             </div>
             <div class="contact-card">
                 <h2><i class="fab fa-linkedin"></i>Socials</h2>
                 <p>
                     <a href="https://www.linkedin.com/in/cebolenkosi-msweli-a02033253/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    
                     <a href="https://www.instagram.com/czikode/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
                 </p>
             </div>
-            
         </div>
     </section>
 

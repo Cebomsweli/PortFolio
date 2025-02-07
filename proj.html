@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Home</title>
+    <!-- Add FontAwesome CDN link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Your other styles here -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            box-sizing: border-box;
         }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: linear-gradient(135deg, #3c7d7d, #afa7dd); /* New Gradient Background */
+            color: #fff;
+            background: linear-gradient(135deg, #d3d4d8, #afa7dd);
+        }
+
         header {
             background-color: #333;
             padding: 10px 20px;
@@ -113,184 +120,301 @@
             }
         }
 
-        .container {
-            width: 80%;
-            max-width: 1000px;
-            margin: 20px auto;
-            flex: 1;
+        .profile {
             text-align: center;
+            margin: 30px 0;
         }
 
-        .project-list {
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1.5px solid #30bde4;
+        }
+
+        .profile h1 {
+            margin: 10px 0 5px;
+            color: #434248;
+        }
+
+        .profile p {
+            color: #434248;
+        }
+
+        .cards {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
         }
 
-        .project-card {
-            background: white;
+        .card {
+            background-color: #434248;
+            border: 1px solid #2fc6e4;
             border-radius: 10px;
             padding: 20px;
             width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
             text-align: center;
-            display: none;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
         }
 
-        .completed {
-            background-color: #d4edda;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 170, 51, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
         }
 
-        .pagination {
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h2,
+        .card h3 {
+            color: #35bdcd;
+            z-index: 1;
+            position: relative;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .card ul li {
+            margin: 5px 0;
+        }
+
+        /* New style for certificates section */
+        #certificates {
+            margin: 20px 0;
+            padding-top: 20px;
+            border-top: 3px solid; /* Remove fixed color */
+            border-image: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff); /* Add gradient */
+            border-image-slice: 1; /* Ensures the gradient is applied to the border */
+            animation: colorShift 3s ease-in-out infinite; /* Adds the color shifting effect */
+            width: 90%; /* Reduce width of the section */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Animation to shift colors */
+        @keyframes colorShift {
+            0% {
+                border-image-source: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff);
+            }
+            25% {
+                border-image-source: linear-gradient(90deg, #ff5733, #33ffaa, #5733ff, #ffaa33);
+            }
+            50% {
+                border-image-source: linear-gradient(90deg, #33ffaa, #5733ff, #ffaa33, #ff5733);
+            }
+            75% {
+                border-image-source: linear-gradient(90deg, #5733ff, #ffaa33, #ff5733, #33ffaa);
+            }
+            100% {
+                border-image-source: linear-gradient(90deg, #ffaa33, #ff5733, #33ffaa, #5733ff);
+            }
+        }
+        
+        #certificates h2 {
+            color: #434248;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .certificate-card {
+            background-color: #1a1a1a;
+            border: 1px solid #43a0c2;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .certificate-card h3 {
+            color: #434248;
+            z-index: 1;
+            position: relative;
+            margin-top: -15px;
+        }
+        
+        .certificate-card p {
+            color: #aaa;
+            z-index: 1;
+            position: relative;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1a1a1a;
+            color: #aaa;
             margin-top: 20px;
         }
-
-        .pagination button {
-            padding: 10px 20px;
-            margin: 5px;
-            border: none;
-            background-color: #333;
+        
+        .certificate-card {
+            background-color: #1a1a1a;
+            border: 1.5px solid #1fb0d8;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        /* Position h3 and p absolutely over the image */
+        .certificate-card h3,
+        .certificate-card p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px;
+            color: rgb(34, 195, 239);
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            text-align: center;
+            z-index: 1; /* Ensure the text is above the image */
+        }
+        
+        
+        
+        .certificate-card p {
+            font-size: 14px;
+        }
+        
+        /* Hover effects */
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(255, 170, 51, 0.4);
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover h3, 
+        .certificate-card:hover p {
+            opacity: 0.9; /* Slight opacity change on hover */
+        }
+        .card h2 i {
+            margin-right: 10px;
+            font-size: 24px; /* Adjust the icon size */
+            color: #fff; /* Aligns the icon color with the theme */
+        }
+        #certificate-cards {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .certificate-set {
+            display: none;
+        }
+        
+        .certificate-set.active {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .certificate-card {
+            width: 300px;
+            background-color: #1a1a1a;
+            border: 1.5px solid #1fb0d8;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 170, 51, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        .certificate-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .certificate-card p {
+            color: rgb(34, 195, 239);
+            background: rgba(0, 0, 0, 0.7); 
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .navigation-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .navigation-buttons button {
+            background-color: #ffaa33;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
         }
-
-        .pagination button:disabled {
-            background-color: #c0c4bd;
-            cursor: not-allowed;
+        
+        .navigation-buttons button:hover {
+            background-color: #ff5733;
         }
-
-        footer {
-            background-color: #333;
+        
+        #page-number {
+            font-size: 18px;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
+            font-weight: bold;
         }
-
-        .icon {
-            color: #969d5d;
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-        /* Style for the button */
-.btn {
-    display: inline-block;
-    background-color: #8cb7e2; /* Blue background color */
-    color: #fff; /* White text color */
-    padding: 10px 20px; /* Padding for size */
-    text-align: center; /* Center the text */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and transform */
-}
-
-.btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
-    /* Style for the header */
-.project-header {
-    font-family: 'Arial', sans-serif; /* Font style */
-    height: 10px;
-    font-size: 48px; /* Large font size */
-    color: #fff; /* White text color */
-    text-align: center; /* Center the text */
-    padding: 50px 20px; /* Padding around the text */
-    margin: 0; /* Remove default margin */
-    background: linear-gradient(135deg, #433453, #2575fc); /* Gradient background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    position: relative; /* Needed for positioning the animation */
-    overflow: hidden; /* Hide the text shadow if it overflows */
-    animation: slideIn 2s ease-in-out;
-}
-
-/* Animation for the text */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%); /* Start off-screen to the left */
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(10%); /* Slightly move into view */
-        opacity: 0.7;
-    }
-    100% {
-        transform: translateX(0); /* Final position centered */
-        opacity: 1; /* Full opacity */
-    }
-}
-
-/* Optional: Add a glowing effect to the text */
-.project-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-    animation: glow 1.5s ease-in-out infinite alternate;
-    border-radius: 10px;
-}
-
-/* Glowing effect */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    }
-    100% {
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-    }
-}
-/* Style for the 'Current Projects' header */
-.current-projects-header {
-    font-family: 'Arial', sans-serif; /* Font style */
-    font-size: 40px; /* Size slightly smaller than h1 */
-    color: #fff; /* White text color */
-    text-align: center; /* Center the text */
-    margin: 0; /* Remove default margin */
-    animation: glowingText 2s infinite alternate, pulseIn 2.5s ease-out; /* Combined animations for glowing and pulsing */
-    text-transform: uppercase; /* Make text uppercase for emphasis */
-    letter-spacing: 2px; /* Add spacing between letters for modern look */
-}
-
-/* Animation for glowing text effect */
-@keyframes glowingText {
-    0% {
-        color: #43a45b; /* Start with a bright yellow */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-    }
-    100% {
-        color: #a87366; /* Transition to soft pink */
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5);
-    }
-}
-
-/* Animation for pulsing effect */
-@keyframes pulseIn {
-    0% {
-        transform: scale(0.8); /* Start small */
-        opacity: 0.4; /* Start with low opacity */
-    }
-    50% {
-        transform: scale(1.1); /* Pulse to larger size */
-        opacity: 0.9;
-    }
-    100% {
-        transform: scale(1); /* Final normal size */
-        opacity: 1; /* Full opacity */
-    }
-}
-
     </style>
 </head>
 <body>
@@ -312,110 +436,111 @@
         </div>
         <div class="username">Cebolenkosi Msweli</div>
     </header>
-    <div class="container">
-        <h1 class="project-header">Projects</h1><br>
-        <section class="projects">
-            <h2 class="current-projects-header">Current Projects</h2>
-            <div class="project-list" id="current-projects">
-                <div class="project-card">
-                    <i class="fas fa-python icon"></i>
-                    <h3>Admin Dashboard</h3>
-                    <p>A Python-based dashboard for managing administrative tasks.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
+
+    <section class="profile" id="home">
+        <img src="cebo.jpg" alt="Cebolenkosi Msweli">
+        <h1>Hello, I'm Cebolenkosi Msweli</h1>
+        <p>A Computer Science and IT graduate passionate about technology and problem-solving.</p>
+    </section>
+
+    <section class="cards" id="skills">
+        <div class="card">
+            <h2><i class="fab fa-python"></i>Python</h2>
+            <ul>
+                <li>Created a Career Advisor Chatbot</li>
+                <li>Data Analysis Projects</li>
+                <li>Experience with Flask and APIs</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-brands fa-microsoft"></i> C#</h2>
+            <ul>
+                <li>Developed a DJ Booking System</li>
+                <li>Experience with ASP.NET</li>
+                <li>Built desktop applications</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-code"></i>C++</h2>
+            <ul>
+                <li>Created a Quiz Game</li>
+                <li>Worked on algorithm-based projects</li>
+                <li>Strong foundation in OOP</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2>Certificates and Achievements</h2>
+        <div class="cards" id="certificate-cards">
+            <!-- Certificate Set 1 -->
+            <div class="certificate-set">
+                <div class="certificate-card">
+                    <a href="AdvisorAndConsultingJob.pdf" download="AdvisorAndConsultingJob.pdf">
+                        <img src="advisor.png" alt="Career Advisor Certificate">
+                        <p>View Certificate</p>
+                    </a>
                 </div>
-                <div class="project-card">
-                    <i class="fas fa-image icon"></i>
-                    <h3>Image Recognizer</h3>
-                    <p>A machine learning project for recognizing images.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
+    
+                <div class="certificate-card">
+                    <a href="CybersecurityJobSimualtion.pdf" download="CybersecurityJobSimualtion.pdf">
+                        <img src="cyber.png" alt="Cybersecurity Certificate">
+                        <p>View Certificate</p>
+                    </a>
                 </div>
-                <div class="project-card">
-                    <i class="fas fa-microphone icon"></i>
-                    <h3>Voice to Text</h3>
-                    <p>A project that converts voice input into text.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
-                </div>
-                <div class="project-card">
-                    <i class="fas fa-sort icon"></i>
-                    <h3>Sorting Algorithms</h3>
-                    <p>Implementation and analysis of various sorting algorithms.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
+    
+                <div class="certificate-card">
+                    <a href="UTAP_Stash_Certificate2024.pdf" download="UTAP_Stash_Certificate2024.pdf">
+                        <img src="online.png" alt="Utap Certificate">
+                        <p>View Certificate</p>
+                    </a>
                 </div>
             </div>
-            <div class="pagination">
-                <button id="prev-current" disabled><</button>
-                <span id="current-page">1</span>
-                <button id="next-current">></button>
+    
+            <!-- Certificate Set 2 -->
+            <div class="certificate-set">
+                <div class="certificate-card">
+                    <a href="C++ Certificate.pdf" download="C++ Certificate.pdf">
+                        <img src="C++ Certificate.jpg" alt="C++ Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="Java_Certificate.pdf" download="Java_Certificate.pdf">
+                        <img src="java.png" alt="Java Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
+    
+                <div class="certificate-card">
+                    <a href="AWS_Certificate.pdf" download="AWS_Certificate.pdf">
+                        <img src="aws.png" alt="AWS Certificate">
+                        <p>View Certificate</p>
+                    </a>
+                </div>
             </div>
-        </section><br>
-        <section class="completed-projects">
-            <h2 class="current-projects-header">Completed projects</h2>
-            <div class="project-list" id="completed-projects">
-                <div class="project-card completed">
-                    <i class="fas fa-comment-dots icon"></i>
-                    <h3>Career Adviser Chatbot</h3>
-                    <p>A web-based Python chatbot providing career advice using the Career Coach Careers API.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
-                </div>
-                <div class="project-card completed">
-                    <i class="fas fa-coins icon"></i>
-                    <h3>Coin Sorting Puzzle</h3>
-                    <p>An AI-powered project implementing search algorithms like A* and DFS for sorting coins.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
-                </div>
-                <div class="project-card completed">
-                    <i class="fas fa-chart-bar icon"></i>
-                    <h3>Data Analysis Dashboard</h3>
-                    <p>A Python-based dashboard for data visualization and analysis using Pandas and Matplotlib.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
-                </div>
-                <div class="project-card completed">
-                    <i class="fas fa-laptop-code icon"></i>
-                    <h3>ASP.NET Booking System</h3>
-                    <p>A web application for managing event bookings, built using C# and ASP.NET.</p>
-                    <a href="#" target="_blank" class="btn">View Code</a>
-                </div>
-                <div class="project-card completed">
-                    <i class="fas fa-comments icon"></i>
-                    <h3>Career Advisor Chatbot</h3>
-                    <p>A chatbot for career guidance, created using Python and an API.</p>
-                    <a href="https://career-chat-ai.vercel.app" target="_blank" class="btn">Try the Chatbot</a>
-                </div>
-                
-            </div>
-            <div class="pagination">
-                <button id="prev-completed" disabled><</button>
-                <span id="completed-page">1</span>
-                <button id="next-completed">></button>
-            </div>
-        </section>
+    
+            <!-- Add more sets as needed -->
+        </div>
+    
+        <!-- Buttons to navigate between certificate sets -->
+    <div class="navigation-buttons">
+        <button id="prev-btn" onclick="showCertificates('prev')"><</button>
+        <span id="page-number">1</span>
+        <button id="next-btn" onclick="showCertificates('next')">></button>
     </div>
+    </section>
+    
+   <!--Experience seesion-->
+   
     <footer>
         <p>&copy; 2025 Cebolenkosi Msweli. All rights reserved.</p>
     </footer>
-    <script>
-        function setupPagination(sectionId, prevBtnId, nextBtnId, pageSpanId) {
-            let index = 0;
-            const items = document.querySelectorAll(`#${sectionId} .project-card`);
-            const perPage = 4;
-            
-            function showPage() {
-                items.forEach((item, i) => {
-                    item.style.display = i >= index && i < index + perPage ? 'block' : 'none';
-                });
-                document.getElementById(prevBtnId).disabled = index === 0;
-                document.getElementById(nextBtnId).disabled = index + perPage >= items.length;
-                document.getElementById(pageSpanId).textContent = (index / perPage) + 1;
-            }
-            
-            document.getElementById(prevBtnId).addEventListener('click', () => { index -= perPage; showPage(); });
-            document.getElementById(nextBtnId).addEventListener('click', () => { index += perPage; showPage(); });
-            showPage();
-        }
-        
-        setupPagination('current-projects', 'prev-current', 'next-current', 'current-page');
-        setupPagination('completed-projects', 'prev-completed', 'next-completed', 'completed-page');
 
+    <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
             const barIcon = document.getElementById('bar-icon');
@@ -432,6 +557,42 @@
                 closeIcon.style.display = 'inline';
             }
         }
+
+        //Pagination
+        let currentSetIndex = 0;
+        const certificateSets = document.querySelectorAll('.certificate-set');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageNumber = document.getElementById('page-number');
+
+        // Initialize by showing the first set of certificates
+        certificateSets[currentSetIndex].classList.add('active');
+        updatePageNumber();
+
+        // Function to show the next or previous set of certificates
+        function showCertificates(direction) {
+        // Remove the active class from the current set
+        certificateSets[currentSetIndex].classList.remove('active');
+    
+        // Update the current set index based on the direction
+        if (direction === 'next') {
+           currentSetIndex = (currentSetIndex + 1) % certificateSets.length; // Loop back to the first set
+        } else if (direction === 'prev') {
+           currentSetIndex = (currentSetIndex - 1 + certificateSets.length) % certificateSets.length; // Loop to the last set
+        }
+
+        // Add the active class to the new set
+        certificateSets[currentSetIndex].classList.add('active');
+    
+        // Update the page number display
+        updatePageNumber();
+    }
+
+    // Function to update the page number
+    function updatePageNumber() {
+       pageNumber.textContent = `Page ${currentSetIndex + 1}`;
+    }
+
     </script>
 </body>
 </html>
