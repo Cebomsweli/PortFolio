@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navbar</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        
 
         body {
             font-family: Arial, sans-serif;
@@ -18,7 +14,7 @@
         }
 
         header {
-            background-color: #4a148c;
+            background-color: #4a148c; /* Purple */
             padding: 10px 20px;
             position: relative;
             display: flex;
@@ -62,23 +58,24 @@
 
         .menu ul li a span {
             margin-right: 8px;
-            font-size: 24px; /* Increased icon size */
+            font-size: 24px;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .menu ul li a:hover span {
-            color: #ffaa33; /* Change icon color to orange */
-            transform: rotate(20deg); /* Rotate icon on hover */
+            color: #ff80ff; /* Light purple hover effect */
+            transform: rotate(20deg);
         }
 
         .menu ul li a:hover {
-            color: #ffaa33; /* Change text color to orange */
+            color: #ff80ff; /* Light purple hover effect */
         }
 
         .username {
             color: white;
             font-size: 18px;
         }
+
 
         #contacts {
             padding: 40px;

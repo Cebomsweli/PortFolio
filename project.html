@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
         header {
-            background-color: #4a148c;
+            background-color: #4a148c; /* Purple */
             padding: 10px 20px;
             position: relative;
             display: flex;
@@ -66,19 +66,43 @@
         }
 
         .menu ul li a:hover span {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple hover effect */
             transform: rotate(20deg);
         }
 
         .menu ul li a:hover {
-            color: #ffaa33;
+            color: #ff80ff; /* Light purple hover effect */
         }
 
         .username {
             color: white;
             font-size: 18px;
         }
+        @media (max-width: 768px) {
+            .menu {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                right: 0;
+                background-color: #4a148c; /* Purple */
+                display: none;
+                flex-direction: column;
+                padding: 10px 0;
+            }
 
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu ul li {
+                margin: 10px 0;
+            }
+
+            .menu ul li a {
+                font-size: 20px;
+            }
+        }
         footer {
             text-align: center;
             padding: 10px;
@@ -93,7 +117,7 @@
                 top: 50px;
                 left: 0;
                 right: 0;
-                background-color: #333;
+                background-color: #4a148c;
                 display: none;
                 flex-direction: column;
                 padding: 10px 0;
@@ -261,6 +285,23 @@
     animation: glowingText 2s infinite alternate, pulseIn 2.5s ease-out; /* Combined animations for glowing and pulsing */
     text-transform: uppercase; /* Make text uppercase for emphasis */
     letter-spacing: 2px; /* Add spacing between letters for modern look */
+}
+.current-projects-header {
+    margin-top: 80px; /* Adjust this value based on the height of your navbar */
+    z-index: 1; /* Ensure it's below the navbar if needed */
+    position: relative; /* Default relative position to avoid any stacking issues */
+}
+
+/* Adjust navbar if needed */
+.navbar {
+    position: fixed; /* Fix the navbar to the top of the screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10; /* Ensure navbar is above other content */
+    background-color: #333; /* Example navbar background */
+    padding: 10px;
+    /* Adjust other navbar styles as needed */
 }
 
 /* Animation for glowing text effect */

@@ -87,7 +87,7 @@
         }
     }
     header {
-        background-color: #4a148c; /* Dark grey background */
+        background-color: #4a148c; /* Purple */
         padding: 10px 20px;
         position: relative;
         display: flex;
@@ -102,7 +102,7 @@
 
     .hamburger {
         font-size: 30px;
-        color: white; /* White icon */
+        color: white;
         cursor: pointer;
         margin-right: 20px;
     }
@@ -121,7 +121,7 @@
     }
 
     .menu ul li a {
-        color: white; /* White text */
+        color: white;
         text-decoration: none;
         font-size: 18px;
         display: flex;
@@ -131,23 +131,49 @@
 
     .menu ul li a span {
         margin-right: 8px;
-        font-size: 24px; /* Increased icon size */
+        font-size: 24px;
         transition: transform 0.3s ease, color 0.3s ease;
     }
 
     .menu ul li a:hover span {
-        color: #ffaa33; /* Orange icon on hover */
-        transform: rotate(20deg); /* Rotate icon on hover */
+        color: #ff80ff; /* Light purple hover effect */
+        transform: rotate(20deg);
     }
 
     .menu ul li a:hover {
-        color: #e2e2ed; /* Orange text on hover */
+        color: #ff80ff; /* Light purple hover effect */
     }
 
     .username {
-        color: white; /* White text */
+        color: white;
         font-size: 18px;
     }
+    @media (max-width: 768px) {
+        .menu {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background-color: #4a148c; /* Purple */
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+
+        .menu ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu ul li {
+            margin: 10px 0;
+        }
+
+        .menu ul li a {
+            font-size: 20px;
+        }
+    }
+    
 
     #contacts {
         padding: 40px;
@@ -173,7 +199,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: #333; /* Dark grey background */
+            background-color: #4a148c; /* Dark grey background */
             display: none;
             flex-direction: column;
             padding: 10px 0;

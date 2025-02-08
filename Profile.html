@@ -100,7 +100,7 @@
                 top: 50px;
                 left: 0;
                 right: 0;
-                background-color: #333;
+                background-color: #4a148c;
                 display: none;
                 flex-direction: column;
                 padding: 10px 0;
@@ -358,6 +358,8 @@
         .certificate-set.active {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap; /* Allow wrapping of items on smaller screens */
+            justify-content: center; /* Center the cards */
         }
         
         .certificate-card {
@@ -372,6 +374,7 @@
             display: flex;
             flex-direction: column;
             padding: 0;
+            margin: 10px; /* Add margin for spacing between cards */
         }
         
         .certificate-card img {
@@ -384,7 +387,7 @@
         
         .certificate-card p {
             color: rgb(34, 195, 239);
-            background: rgba(0, 0, 0, 0.7); 
+            background: rgba(0, 0, 0, 0.7);
             text-align: center;
             padding: 10px;
         }
@@ -395,7 +398,7 @@
         }
         
         .navigation-buttons button {
-            background-color: #ffaa33;
+            background-color: #1f1cd8;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -407,13 +410,41 @@
         }
         
         .navigation-buttons button:hover {
-            background-color: #ff5733;
+            background-color: #7b0c45;
         }
         
         #page-number {
             font-size: 18px;
             color: white;
             font-weight: bold;
+        }
+        
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .certificate-set.active {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+            }
+        
+            .certificate-card {
+                width: 100%; /* Full width on smaller screens */
+                margin: 10px 0; /* Adjust margins for stacking */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .certificate-card {
+                width: 100%; /* Ensure full width on very small screens */
+                margin: 10px 0; /* Adjust margins for stacking */
+            }
+        
+            .navigation-buttons button {
+                width: 100%; /* Make buttons full width on small screens */
+                margin: 5px 0; /* Adjust button margin */
+            }
+        
+            #page-number {
+                font-size: 16px; /* Slightly smaller font size for very small screens */
+            }
         }
     </style>
 </head>
